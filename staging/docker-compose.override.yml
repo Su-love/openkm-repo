@@ -1,1 +1,23 @@
+version: '3.8'
+
+services:
+  mysql:
+    environment:
+      MYSQL_DATABASE: okmdb_staging
+    volumes:
+      - ./mysql_staging:/var/lib/mysql
+    restart: unless-stopped
+    mem_limit: 2g
+    cpus: 1.0
+
+  openkm:
+    ports:
+      - "8082:8080"
+    environment:
+      JAVA_OPTS: "-Xmx1024m -Dspring.profiles.active=staging"
+    volumes:
+      - ./repository_staging:/opt/tomcat/repository
+    restart: unless-stopped
+    mem_limit: 2g
+    cpus: 2.0
 
