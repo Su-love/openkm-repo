@@ -1,1 +1,23 @@
+version: '3.8'
+
+services:
+  mysql:
+    environment:
+      MYSQL_DATABASE: okmdb_prod
+    volumes:
+      - ./mysql_prod:/var/lib/mysql
+    restart: unless-stopped
+    mem_limit: 4g
+    cpus: 2.0
+
+  openkm:
+    ports:
+      - "8080:8080"   # prod port
+    environment:
+      JAVA_OPTS: "-Xmx2048m -Dspring.profiles.active=prod"
+    volumes:
+      - ./repository_prod:/opt/tomcat/repository
+    restart: unless-stopped
+    mem_limit: 8g
+    cpus: 4.0
 
