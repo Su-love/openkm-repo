@@ -32,7 +32,7 @@ services:
       timeout: 5s
       retries: 10
       start_period: 30s
-
+      
   openkm:
     image: openkm/openkm-ce:6.3.9
     container_name: openkm
@@ -54,4 +54,6 @@ services:
       done;
       catalina.sh run
       "
+
+
 
