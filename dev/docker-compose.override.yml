@@ -1,1 +1,23 @@
+version: '3.8'
+
+services:
+  mysql:
+    environment:
+      MYSQL_DATABASE: okmdb_dev
+    volumes:
+      - ./mysql_dev:/var/lib/mysql
+    restart: always
+    mem_limit: 1g
+    cpus: 0.5
+
+  openkm:
+    ports:
+      - "8081:8080"
+    environment:
+      JAVA_OPTS: "-Xmx512m -Dspring.profiles.active=dev"
+    volumes:
+      - ./repository_dev:/opt/tomcat/repository
+    restart: always
+    mem_limit: 1g
+    cpus: 1.0
 
