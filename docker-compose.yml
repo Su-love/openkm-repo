@@ -19,8 +19,8 @@ services:
     environment:
       MYSQL_DATABASE: okmdb
       MYSQL_USER: openkm
-      MYSQL_PASSWORD: ${OPENKM_DB_PASS}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASS}
+      MYSQL_PASSWORD: Sulav@123##
+      MYSQL_ROOT_PASSWORD: Sulav@123###
     volumes:
       - ./mysql:/var/lib/mysql
     security_opt:
