@@ -27,7 +27,7 @@ services:
       - seccomp:unconfined
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-hmysql", "-uopenkm", "--password=$OPENKM_DB_PASS"]
+      test: ["CMD", "mysqladmin", "ping", "-hmysql", "-uopenkm", "--password=Sulav@123##"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -49,11 +49,8 @@ services:
     restart: unless-stopped
     entrypoint: >
       sh -c "
-      until mysqladmin ping -hmysql -uopenkm --password=$OPENKM_DB_PASS > /dev/null 2>&1; do
+      until mysqladmin ping -hmysql -uopenkm --password=Sulav@123## > /dev/null 2>&1; do
         echo 'Waiting for MySQL...'; sleep 5;
       done;
       catalina.sh run
       "
-
-
-
