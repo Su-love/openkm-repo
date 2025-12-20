@@ -40,7 +40,6 @@ services:
       - ./server.xml:/opt/tomcat/conf/server.xml
       - ./OpenKM.cfg:/opt/tomcat/OpenKM.cfg
       - ./repository:/opt/tomcat/repository
-      - ./tomcat_conf:/opt/tomcat/conf/Catalina/localhost
     depends_on:
       mysql:
         condition: service_healthy
