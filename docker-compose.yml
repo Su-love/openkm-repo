@@ -44,10 +44,3 @@ services:
       mysql:
         condition: service_healthy
     restart: unless-stopped
-    entrypoint: >
-      sh -c "
-      until mysqladmin ping -hmysql -uopenkm --password=Sulav@123## > /dev/null 2>&1; do
-        echo 'Waiting for MySQL...'; sleep 5;
-      done;
-      catalina.sh run
-      "
